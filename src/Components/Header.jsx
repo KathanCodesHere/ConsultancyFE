@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <header className="w-full bg-white shadow-sm">
@@ -14,30 +14,25 @@ const Header = () => {
 
         {/* Center Section - Navbar */}
         <nav className="hidden md:flex space-x-8">
-          <a
-            href="#"
+          <Link
+            to="/"
             className="text-gray-700 font-medium hover:text-[#40a5a6] transition"
           >
             Home
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="#"
             className="text-gray-700 font-medium hover:text-[#40a5a6] transition"
           >
             Services
-          </a>
-          <a
-            href="#"
-            className="text-gray-700 font-medium hover:text-[#40a5a6] transition"
-          >
-            About Us
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link to='/about' className="text-gray-700 font-medium hover:text-[#40a5a6] transition">About Us</Link>
+          <Link
+            to="/contact"
             className="text-gray-700 font-medium hover:text-[#40a5a6] transition"
           >
             Contact Us
-          </a>
+          </Link>
         </nav>
 
         {/* Right Section - Free Consultation */}
