@@ -1,9 +1,12 @@
 import React from 'react'
 import Header from './Header'
 import Footer from './Footer'
-import Hero from './Hero'
-import AboutUs from './AboutUs'
-import ServicesCards from './ServicesCards'
+import Hero from './HomeC/Hero'
+import AboutUs from './HomeC/AboutUs'
+import ServicesCards from './HomeC/ServicesCards'
+import ReadyToTransform from './HomeC/ReadyToTransform'
+import Industries from './HomeC/Industries'
+import ExpertInsights from './HomeC/ExpertInsights'
 
 const Home = () => {
   return (
@@ -12,6 +15,9 @@ const Home = () => {
         <Hero/>
         <AboutUs/>
         <ServicesCards/>
+        <Industries/>
+        <ExpertInsights/>
+        <ReadyToTransform/>
       <Footer/>
     </>
   )
