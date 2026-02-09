@@ -1,6 +1,37 @@
-import React from "react";
-
+import React,{useState} from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const AdminLogin = () => {
+  const navigate = useNavigate();
+  const [formData,setFormData]=useState({
+    email:"",
+    password:""
+  });
+  const [error,setError]=useState("");
+  const login=async(e)=>{
+    e.preventDefault();
+    setError("");
+    const url="http://localhost:5000/api/auth/login";
+    try{
+      const res=await axios.post(url,formData);
+      // console.log("data: ",res.data);
+      const token  = res.data.data.token;
+       localStorage.setItem('adminToken', token);
+      navigate('/admin/dash');
+    }
+    catch(err){
+      console.log(err);
+      setError("Invalid credentials please re-enter");
+    }
+  }
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
       
@@ -13,7 +44,7 @@ const AdminLogin = () => {
         </h1>
 
         {/* Form */}
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={login}>
           
           {/* Email */}
           <div>
@@ -21,8 +52,8 @@ const AdminLogin = () => {
               Email
             </label>
             <input
-              type="email"
-              placeholder="Enter your email"
+              type="email" name="email"
+              placeholder="Enter your email" onChange={handleChange} value={formData.email}
               className="w-full border border-gray-300 px-4 py-3 focus:outline-none focus:ring-1 focus:ring-blue-500"
             />
           </div>
@@ -33,12 +64,13 @@ const AdminLogin = () => {
               Password
             </label>
             <input
-              type="password"
-              placeholder="Enter your password"
+              type="password" name="password"
+              placeholder="Enter your password" onChange={handleChange} value={formData.password}
               className="w-full border border-gray-300 px-4 py-3 focus:outline-none focus:ring-1 focus:ring-blue-500"
             />
           </div>
 
+          {error!=""?<p className="text-red-400">{error}</p>:""}
           {/* Submit Button */}
           <button
             type="submit"
