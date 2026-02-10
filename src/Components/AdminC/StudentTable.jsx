@@ -60,7 +60,7 @@ const StudentTable = () => {
               <th className="border px-4 py-2">Email</th>
               <th className="border px-4 py-2">Phone</th>
               <th className="border px-4 py-2">Gender</th>
-              <th className="border px-4 py-2">Description</th>
+              <th className="border px-4 py-2">Message</th>
               <th className="border px-4 py-2">Created At</th>
               <th className="border px-4 py-2">Actions</th>
             </tr>

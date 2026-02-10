@@ -3,7 +3,7 @@ import Header from '../Header'
 import ContHead from '../ContactC/ContHead'
 import GetInTouch from '../ContactC/GetInTouch'
 import ReadyToTransform from '../HomeC/ReadyToTransform'
-
+import Footer from "../Footer"
 const Contact = () => {
   return (
     <>
@@ -11,6 +11,7 @@ const Contact = () => {
       <ContHead/>
       <GetInTouch/>
       <ReadyToTransform/>
+      <Footer/>
     </>
   )
 }
